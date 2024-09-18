@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
       }}
       animate={{
         padding: isScrolled ? "10px 20px" : "20px 40px",
-        height: isScrolled ? "60px" : "100px",
+        height: isScrolled ? "50px" : "100px",
         top: isScrolled ? "20px" : "0px",
         borderRadius: isScrolled ? "15px" : "0px",
         boxShadow: isScrolled ? "0px 4px 15px rgba(0, 0, 0, 0.2)" : "none",
@@ -91,3 +91,4 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+

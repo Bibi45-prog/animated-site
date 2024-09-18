@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "./components/footer";
 import { motion } from "framer-motion";
 import {
   FiArrowRight,
@@ -8,13 +9,70 @@ import {
   FiMoreHorizontal,
 } from "react-icons/fi";
 import { BsCircleHalf } from "react-icons/bs";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const Home: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
+ 
+  const data = {
+    labels: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [
+      {
+        label: "Toronto",
+        data: [12, 19, 3, 5, 2, 3, 10],
+        backgroundColor: "#E16540",
+      },
+      {
+        label: "Vancouver",
+        data: [2, 3, 20, 5, 1, 4, 15],
+        backgroundColor: "#95D1FF",
+      },
+      {
+        label: "Montreal",
+        data: [3, 10, 13, 15, 22, 30, 25],
+        backgroundColor: "#9999FF",
+      },
+      {
+        label: "Ottawa",
+        data: [5, 15, 10, 7, 18, 22, 17],
+        backgroundColor: "#FAC666",
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+  };
+
   return (
-    <div className="px-4 sm:px-6 lg:px-20">
-      <div className="bg-[#F7F3F0] rounded-3xl p-3 shadow-xl">
+    <div>
+     
+      <div className="bg-[#F7F3F0] rounded-3xl mx-20 py-4 px-4 sm:px-6 lg:px-20">
         <div className="flex justify-center">
           <motion.button
             className="flex justify-center items-center gap-2 my-3 shadow-md p-2 rounded-2xl bg-[#FBFAF9]"
@@ -134,40 +192,108 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="my-10">
-        <p className="text-sm text-gray-600">
-          Powering data insights for today's startups and tomorrow's leaders.
-        </p>
-        <img src="/assets/img/logos.png" alt="logos" className="mt-10"></img>
-      </div>
+        <div className="bg-[#F7F3F0] rounded-3xl p-3 shadow-xl pt-40 mx-20 my-10 px-4 sm:px-6 lg:px-20">
+          <div className="flex justify-center">
+            <button className="flex justify-center items-center gap-2 shadow-md p-2 rounded-3xl text-sm bg-[#FBFAF9]">
+              <BsCircleHalf />
+              Accessible for all
+            </button>
+          </div>
 
-      <div className="bg-[#F7F3F0] rounded-3xl p-3 shadow-xl pt-40">
-        <div className="flex justify-center">
-          <button className="flex justify-center items-center gap-2 shadow-md p-2 rounded-3xl text-sm bg-[#FBFAF9]">
-            <BsCircleHalf />
-            Accessible for all
-          </button>
+          <div className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl  text-black text-center">
+            <p>Connect your data</p>
+          </div>
+
+          <p className="text-center">Index connects to a growing number of</p>
+          <p className="text-center">databases and data warehouses.</p>
+
+          <div className="flex justify-center mt-5">
+            <button className="bg-[#37322F] text-white py-2 px-4 rounded-lg shadow-lg">
+              Get started today
+            </button>
+          </div>
+
+          <div className="flex justify-center mt-20 mb-10">
+            <img
+              src="/assets/img/logo_small.svg"
+              alt="small-logo"
+              className="w-[60px] h-[60px]"
+            ></img>
+          </div>
         </div>
 
-        <div className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-5 text-black text-center">
-          <p>Connect your data</p>
-        </div>
-
-        <p>Index connects to a growing number of</p>
-        <p>databases and data warehouses.</p>
-
-        <button className="bg-[#37322F] text-white my-10 p-2 rounded-xl shadow-lg">
-          Get started today
-        </button>
-        <div className="flex justify-center mt-20 mb-10">
+        <div className="my-10 px-4 sm:px-6 lg:px-20">
+          <p className="text-sm text-gray-600">
+            Powering data insights for today's startups and tomorrow's leaders.
+          </p>
           <img
-            src="/assets/img/logo_small.svg"
-            alt="small-logo"
-            className="w-[60px] h-[60px]"
+            src="/assets/img/logos.png"
+            alt="logos"
+            className="mt-10"
           ></img>
         </div>
+
+
+      
+        <div className="bg-[#F7F3F0] rounded-3xl p-6 shadow-xl  mx-20 mt-10 px-4 sm:px-6 lg:px-20">
+          <div className="flex justify-center mb-5">
+            <button className="flex justify-center items-center gap-2 shadow-md p-2 rounded-3xl text-sm bg-[#FBFAF9]">
+              <BsCircleHalf />
+              Accessible for all
+            </button>
+          </div>
+
+          <div className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-5 text-black text-center">
+            <p>Query your data – your way</p>
+          </div>
+
+          <p className="text-center">
+            Streamline your data analysis with our seamless SQL and visual
+            editor. Give everyone in your team the superpowers they need.
+          </p>
+
+          <div className="flex justify-center gap-4 mt-6">
+            <button className="bg-[#333533] text-white py-2 px-4 rounded-lg">
+              SQL
+            </button>
+            <button className="bg-[#333533] text-white py-2 px-4 rounded-lg">
+              Visual
+            </button>
+          </div>
+
+          <div className="h-[300px] sm:h-[400px] mt-8">
+            <Bar data={data} options={options} />
+          </div>
+
+          <div className="mt-5">
+            <p className="text-center font-semibold">Number of orders by city</p>
+          </div>
+
+        
+          <div className="bg-white p-4 mt-6 rounded-lg shadow-lg">
+            <p className="font-semibold">Filter</p>
+            <div className="flex items-center gap-3 mt-4">
+              <p>Where</p>
+              <div className="flex items-center bg-gray-100 p-2 rounded-lg">
+                <span className="text-sm">city</span>
+              </div>
+              <p>contains</p>
+              <div className="flex items-center bg-gray-100 p-2 rounded-lg">
+                <span className="text-sm">Toronto +5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<Footer />
+       
+      
+        
       </div>
-    </div>
+
+
+
+      
   );
 };
 
