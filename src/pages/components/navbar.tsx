@@ -28,50 +28,60 @@ const Navbar: React.FC = () => {
         top: "0px",
         borderRadius: "0px",
         boxShadow: "none",
-        width: "100%", 
+        width: "100%",
         maxWidth: "1200px",
       }}
       animate={{
         padding: isScrolled ? "10px 20px" : "20px 40px",
         height: isScrolled ? "60px" : "100px",
-        top: isScrolled ? "20px" : "0px", 
+        top: isScrolled ? "20px" : "0px",
         borderRadius: isScrolled ? "15px" : "0px",
         boxShadow: isScrolled ? "0px 4px 15px rgba(0, 0, 0, 0.2)" : "none",
-        width: isScrolled ? "90%" : "100%", 
-        maxWidth: isScrolled ? "900px" : "1200px", 
+        width: isScrolled ? "80%" : "100%",
+        maxWidth: isScrolled ? "900px" : "1200px",
       }}
-      className={`flex sticky bg-white transition-all duration-600 z-50 mx-auto`} 
+      className={`flex sticky bg-white transition-all duration-600 z-50 mx-auto`}
     >
       <NavLink className="flex items-center w-max" to={"/"}>
         <motion.img
-          src={isScrolled ? "/assets/img/logo_small.svg" : "/assets/img/logo.svg"}
+          src={
+            isScrolled ? "/assets/img/logo_small.svg" : "/assets/img/logo.svg"
+          }
           alt="logo"
           className="m-5"
-          initial={{ width: "120px" }}
-          animate={{ width: isScrolled ? "60px" : "120px", height: isScrolled ? "40px" : "auto" }}
+          initial={{ width: "120px", height: "auto" }}
+          animate={{
+            width: isScrolled ? "40px" : "100px",
+            height: isScrolled ? "30px" : "auto",
+          }}
         />
       </NavLink>
 
+      {isScrolled && (
+        <div className="flex items-center border-l h-[25px] border-gray-300 my-2"></div>
+      )}
+
       <div className="flex items-center font-[300] text-[#414242] w-max text-[14px] m-auto h-full">
-        {/* Menu Items */}
-        {["Features", "Pricing", "Blog", "Changelog", "Careers", "Support"].map((item) => (
-          <ul key={item}>
-            <li>
-              <NavLink
-                to="/"
-                className="m-[10px] hover:bg-[#f9f7f3] hover:text-black px-4 py-2 rounded-lg transition-all duration-300"
-              >
-                {item}
-              </NavLink>
-            </li>
-          </ul>
-        ))}
+        {["Features", "Pricing", "Blog", "Changelog", "Careers", "Support"].map(
+          (item) => (
+            <ul key={item}>
+              <li>
+                <NavLink
+                  to="/"
+                  className="m-[10px] hover:bg-[#FBFAF9] hover:text-black px-4 py-2 rounded-lg transition-all duration-300"
+                >
+                  {item}
+                </NavLink>
+              </li>
+            </ul>
+          ),
+        )}
       </div>
 
       <div className="flex items-center font-[300] justify-end m-[10px]">
         <NavLink
           to="/login"
-          className="text-[14px] hover:bg-[#f9f7f3] hover:text-black px-4 py-2 rounded-lg transition-all duration-300"
+          className="text-[14px] hover:bg-[#FBFAF9] hover:text-black px-4 py-2 rounded-lg transition-all duration-300"
         >
           Log in
         </NavLink>
