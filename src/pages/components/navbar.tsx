@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X } from "react-feather"; // Import Feather icons
+import { Menu, X } from "react-feather"; 
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
                 </NavLink>
               </li>
             </ul>
-          ),
+          )
         )}
       </div>
 
@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
         </NavLink>
       </div>
 
-      {/* Mobile menu button moved to the end */}
+      
       <div className="flex md:hidden items-center ml-auto">
         <button
           onClick={toggleMenu}
@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Sidebar for small devices */}
+
       {isMenuOpen && (
         <div className="fixed top-0 left-0 w-2/3 h-full bg-white shadow-lg z-50 p-5">
           <button
@@ -113,23 +113,18 @@ const Navbar: React.FC = () => {
             <X />
           </button>
           <ul>
-            {[
-              "Features",
-              "Pricing",
-              "Blog",
-              "Changelog",
-              "Careers",
-              "Support",
-            ].map((item) => (
-              <li key={item} className="mb-4">
-                <NavLink
-                  to="/"
-                  className="block text-[14px] hover:bg-[#FBFAF9] hover:text-black px-4 py-2 rounded-lg transition-all duration-300"
-                >
-                  {item}
-                </NavLink>
-              </li>
-            ))}
+            {["Features", "Pricing", "Blog", "Changelog", "Careers", "Support"].map(
+              (item) => (
+                <li key={item} className="mb-4">
+                  <NavLink
+                    to="/"
+                    className="block text-[14px] hover:bg-[#FBFAF9] hover:text-black px-4 py-2 rounded-lg transition-all duration-300"
+                  >
+                    {item}
+                  </NavLink>
+                </li>
+              )
+            )}
           </ul>
           <div>
             <NavLink
